@@ -1,0 +1,1582 @@
+/*
+
+ * The Lucca Sensosç Quiz CSS: Espresso & Velocity Edition.
+
+ *
+
+ * This stylesheet is a symphony of design, meticulously orchestrated
+
+ * to deliver an experience that's not just intuitive, but truly
+
+ * captivating. Every interaction, every transition, every hue is
+
+ * crafted to evoke the richness of coffee, the urgency of opportunity,
+
+ * and the triumph of success. It's a blend of high-fidelity aesthetics
+
+ * and exhilarating performance, engineered for pure delight.
+
+ *
+
+ * Version 2.0: The 'Phantom Pain' of Perfection.
+
+ * Elevating the experience with micro-animations, kinetic typography,
+
+ * and hyper-real material feedback. Every pixel, every millisecond,
+
+ * is now a deliberate narrative.
+
+ */
+
+
+
+:root {
+
+    /* Core Brand Colors: A rich, sophisticated palette evoking coffee, urgency, and success. */
+
+    --color-primary: #8B4513; /* Deep Coffee Brown - Grounded, rich, and sophisticated */
+
+    --color-primary-dark: #6F360F; /* Darker Espresso - For active states, adds depth and intensity */
+
+    --color-primary-light: #F4EADF; /* Creamy Latte Foam - Soft background for selected items, inviting */
+
+    --color-primary-ultralight: #FAF6F1; /* Warm Milk Whisper - Almost white, delicate accents, feels fresh */
+
+    --color-accent-success: #28A745; /* Vibrant Success Green - A confident pop for completion/success */
+
+    --color-accent-urgency: #DC3545; /* Bold Urgency Red - For critical feedback or attention */
+
+    --color-primary-alpha-05: rgba(139, 69, 19, 0.05); /* Ultra-light transparent primary tint */
+
+    --color-primary-alpha-10: rgba(139, 69, 19, 0.1); /* Light, transparent primary tint */
+
+    --color-primary-alpha-20: rgba(139, 69, 19, 0.2); /* Slightly more opaque primary tint */
+
+    --color-primary-alpha-40: rgba(139, 69, 19, 0.4); /* For subtle focus rings */
+
+    --color-primary-alpha-60: rgba(139, 69, 19, 0.6); /* For deeper overlays */
+
+
+
+    /* Text Colors: Harmony and clarity with warmth and impact. */
+
+    --text-color-heading: #2F1E12; /* Rich Dark Roast - Strong, authoritative for titles */
+
+    --text-color-body: #5C4A3A; /* Medium Roast Brown - Comfortable for reading, inviting */
+
+    --text-color-subtle: #968A7C; /* Muted Oat Milk - Gentle for secondary info, guides softly */
+
+    --text-color-placeholder: #B0A398; /* Faded Cream - Soft, unobtrusive hints in form fields */
+
+    --text-color-inverted: #FFFFFF; /* Pure Snowflake - Crisp contrast on dark elements */
+
+    --text-color-disabled: #A59B90; /* Desaturated Brew - Muted tone for inactive text */
+
+
+
+    /* Backgrounds: Layers of light and subtle texture, creating depth and focus. */
+
+    --bg-color-page: #FCF9F6; /* Freshly Ground - The inviting canvas of the quiz, breathable */
+
+    --bg-color-card: #FFFFFF; /* Porcelain White - Crisp, clean surface for interactive elements, elevated */
+
+    --bg-color-overlay: rgba(255, 255, 255, 0.95); /* Steamed Milk Translucency - For overlays, feels soft */
+
+    --bg-color-disabled: #EAE3DD; /* Cold Brew Dregs - A desaturated tone for inactive elements */
+
+
+
+    /* Borders & Separators: Defining space with understated elegance and intent. */
+
+    --border-color-soft: #DED6CF; /* Gentle Steam - Delicate separation, avoids harsh lines */
+
+    --border-color-medium: #C8C0B7; /* Roasted Bean Edge - Slightly more defined for structure */
+
+    --border-color-focus: var(--color-primary); /* Golden Crema Focus - Vibrant embrace for interactive focus */
+
+    --border-color-success: var(--color-accent-success); /* Green for success */
+
+    --border-color-error: var(--color-accent-urgency); /* Red for errors */
+
+
+
+    /* Shadows: Breathing life into elements, creating sophisticated elevation and depth. */
+
+    --shadow-small: 0 1px 4px rgba(0, 0, 0, 0.03); /* Lighter, more ethereal lift */
+
+    --shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.06); /* Standard card elevation, gentle diffusion */
+
+    --shadow-large: 0 12px 35px rgba(0, 0, 0, 0.12); /* For active or prominent elements, significant depth */
+
+    --shadow-interactive-hover: 0 10px 30px rgba(0, 0, 0, 0.1); /* Dynamic lift on hover, engaging */
+
+    --shadow-input-focus-glow: 0 0 0 4px var(--color-primary-alpha-40); /* Broader, softer glow for focus */
+
+    --shadow-button-press: 0 0 0 0px transparent, 0 1px 2px rgba(0, 0, 0, 0.03); /* Near-zero shadow for pressed state, feels integrated */
+
+
+
+    /* Typography: Where clarity meets character, refined for optimal readability. */
+
+    --font-family-display: 'Playfair Display', serif; /* Expressive, inviting for headings, evokes luxury */
+
+    --font-family-body: 'Lato', sans-serif; /* Readable, versatile for all content, modern */
+
+
+
+    /* Spacing System: A rhythmic foundation for harmonious layouts and visual flow. */
+
+    --space-xxs: 4px;
+
+    --space-xs: 8px;
+
+    --space-sm: 12px;
+
+    --space-md: 20px;
+
+    --space-lg: 32px;
+
+    --space-xl: 48px;
+
+    --space-xxl: 72px;
+
+    --space-xxxl: 96px;
+
+
+
+    /* Border Radius: Softening edges, enhancing tactile feel and modern aesthetic. */
+
+    --radius-xs: 4px;
+
+    --radius-sm: 8px;
+
+    --radius-md: 14px; /* Slightly larger, more elegant curve */
+
+    --radius-lg: 20px; /* For a plush, modern feel */
+
+    --radius-pill: 50%;
+
+
+
+    /* Transitions & Animations: The secret language of smooth, intelligent, and sexy interaction. */
+
+    --transition-snappy: 0.1s cubic-bezier(0.4, 0, 0.6, 1.2); /* Quick, slightly overshooting for immediate feedback */
+
+    --transition-fluid: 0.35s cubic-bezier(0.23, 1, 0.32, 1); /* Natural, ease-out-back for general changes, feels responsive */
+
+    --transition-smooth: 0.6s cubic-bezier(0.22, 1, 0.36, 1); /* Luxurious, very gentle ease-out-expo for larger changes */
+
+    --transition-image-parallax: 1.2s cubic-bezier(0.19, 1, 0.22, 1); /* Very smooth, almost lazy for subtle parallax */
+
+    --transition-overlay-fade: 0.45s cubic-bezier(0.55, 0.085, 0.68, 0.53); /* Ease-in-out for dramatic fade */
+
+    --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* For bouncy interactive elements */
+
+    --transition-spring-hover: 0.3s cubic-bezier(.17,.84,.44,1); /* Springy, light hover */
+
+    --transition-text-reveal: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); /* For text appearing with motion */
+
+
+
+    /* Z-Index Hierarchy: Managing layers for sophisticated perceived depth. */
+
+    --z-index-base: 1;
+
+    --z-index-content: 10;
+
+    --z-index-floating-elements: 20;
+
+    --z-index-overlay: 100;
+
+    --z-index-modal: 1000;
+
+}
+
+
+
+/* Universal Enhancements: The foundational touches that elevate the entire experience. */
+
+*, *::before, *::after {
+
+    box-sizing: border-box;
+
+    -webkit-tap-highlight-color: transparent;
+
+    margin: 0;
+
+    padding: 0;
+
+    /* Optimize for GPU acceleration from the start for all animatable properties */
+
+    will-change: transform, opacity, filter, background-color, box-shadow, border-color, color;
+
+}
+
+
+
+html {
+
+    scroll-behavior: smooth;
+
+    -webkit-text-size-adjust: 100%;
+
+    /* Subtle scroll snap for section changes if applicable, adds a deliberate feel */
+
+    scroll-snap-type: y proximity;
+
+}
+
+
+
+body {
+    /* Font & Text Rendering */
+    font-family: var(--font-family-body), sans-serif; /* Add a generic fallback font */
+    color: var(--text-color-body);
+    line-height: 1.6; /* Slightly less generous, but still very readable; 1.8 can be too much for some designs */
+    -webkit-font-smoothing: antialiased; /* Smoother text rendering on macOS/iOS */
+    -moz-osx-font-smoothing: grayscale; /* Smoother text rendering on Firefox for macOS */
+    text-rendering: optimizeLegibility; /* Improves kerning and ligatures for better readability */
+    word-break: break-word; /* Prevents long words from overflowing their containers */
+    overflow-wrap: break-word; /* Modern alternative to word-break */
+
+    /* Background & Layout */
+    background-color: var(--bg-color-page);
+    min-height: 100vh; /* Ensures the body takes at least the full viewport height */
+    margin: 0; /* Resets default browser margin */
+    padding: 0; /* Resets default browser padding */
+    overflow-x: hidden; /* Prevents horizontal scrolling, common for layouts */
+
+    /* 3D Context (if actively used) */
+    /* Only include perspective if you plan to use 3D transforms directly on children of body */
+    /* If not, it's better to apply perspective to specific parent containers for performance */
+    perspective: 1000px;
+}
+
+/* --- Accessibility & Focus Management --- */
+a:focus:not(:focus-visible) {
+    outline: none; /* Hides outline only for mouse clicks, keeps for keyboard navigation */
+}
+
+/* Ensure focus-visible is always respected for keyboard users */
+a:focus-visible {
+    outline: 2px solid var(--focus-outline-color, #007bff); /* Custom outline for accessibility */
+    outline-offset: 2px; /* Adds space between the outline and the element */
+}
+
+/* Optional: Add a smooth transition for outline changes */
+a {
+    transition: outline-color 0.2s ease-in-out;
+}
+
+
+/* --- Layout & Core Structure: The meticulously crafted stage. --- */
+
+.quiz-wrapper {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    align-items: stretch;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    /* Clean, subtle background. Remove noise for pure simplicity. */
+    background: var(--bg-color-page);
+}
+
+.quiz-image {
+    flex: 01%; /* Simplified flex value */
+    background: center center / cover no-repeat;
+    background-image: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80');
+    transition: background-image var(--transition-smooth), filter var(--transition-smooth);
+    /* Subtle filter adjustment for a natural, refined look. Avoid dramatic changes. */
+    filter: brightness(0.9) contrast(1.05); /* Softer brightness, slight contrast */
+    will-change: background-image, filter;
+    overflow: hidden;
+    position: relative;
+    z-index: var(--z-index-base);
+    transform: translateZ(0); /* Ensure GPU acceleration */
+
+    /* Subtler overlay: more about unifying the image than adding texture. */
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        /* Very gentle linear gradient for subtle depth, almost imperceptible vignette */
+        background: linear-gradient(to top, rgba(0,0,0,0.1) 0%, transparent 50%);
+        /* Radial gradient removed for simplicity, or make it extremely subtle */
+        /* background: radial-gradient(ellipse at center, rgba(0,0,0,0.05) 0%, transparent 80%); */
+        pointer-events: none;
+        mix-blend-mode: normal; /* Keep it simple, less "effect" */
+        opacity: 1; /* Always present, blending */
+    }
+}
+
+.quiz-content {
+    flex: 1;
+    padding: var(--space-xxxl) var(--space-xl);
+    background-color: var(--bg-color-page);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: var(--z-index-content);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    /* transform-style: preserve-3d; -- Only if children directly use 3D transforms */
+}
+
+/* --- Global Typography: Crafting the voice of the interface. --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-display), sans-serif; /* Add fallback */
+    color: var(--text-color-heading);
+    line-height: 1.15; /* More breathable than 1.05, avoids cramped lines */
+    margin-top: 0;
+    margin-bottom: var(--space-md);
+    font-weight: 600; /* Slightly less bold than 700 for elegance, still impactful */
+    letter-spacing: -0.02em; /* Tighter but not excessively so, maintains readability */
+    text-rendering: optimizeLegibility;
+    /* transform: translateZ(0); -- Generally not needed for static headings unless animated */
+}
+
+p {
+    margin-bottom: var(--space-lg);
+    /* transform: translateZ(0); -- Generally not needed for static paragraphs unless animated */
+}
+
+.text-subtle {
+    color: var(--text-color-subtle);
+    font-size: 0.9em; /* Slightly smaller for true subtlety */
+    font-style: normal; /* Avoid italics for plain subtle text; use for actual emphasis */
+    transition: color var(--transition-fluid);
+}
+
+/* --- Buttons: Tactile, responsive, and inviting interaction points, truly premium. --- */
+.button {
+    padding: var(--space-sm) var(--space-lg); /* More proportional padding, refined */
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: 16px; /* Standard, comfortable reading size, not too large */
+    font-weight: 500; /* Balanced weight, clear but not shouting */
+    cursor: pointer;
+    transition: background-color var(--transition-fluid),
+                transform var(--transition-ease), /* Simpler ease, less "springy" */
+                box-shadow var(--transition-fluid),
+                filter var(--transition-fluid),
+                opacity var(--transition-snappy);
+    will-change: background-color, transform, box-shadow, filter, opacity;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow: hidden;
+    /* backface-visibility: hidden; -- Remove if not causing specific issues; less is more */
+    transform: translateZ(0); /* Ensure GPU acceleration */
+    box-shadow: var(--shadow-sm); /* Subtler default button shadow */
+
+    /* Shimmer on hover: extremely subtle, almost a "polish" rather than a "flash" */
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%; /* Start exactly off-screen left */
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08) 30%, transparent 70%); /* Very faint shimmer */
+        transition: left 0.5s ease-out; /* Faster, smoother, more precise */
+        transform: skewX(-15deg); /* Less dramatic skew */
+        pointer-events: none;
+    }
+    &:hover::after {
+        left: 100%; /* End exactly off-screen right */
+    }
+
+    &:focus-visible { /* Essential for accessibility */
+        outline: 2px solid var(--color-apple-accent, #007AFF); /* Consistent focus ring */
+        outline-offset: 2px;
+    }
+
+}
+
+
+
+.button:focus-visible {
+
+    outline: none;
+
+    box-shadow: var(--shadow-input-focus-glow), var(--shadow-large); /* Broader, sexier focus glow */
+
+    transform: scale(1.01) translateZ(5px); /* Slight lift and scale on focus-visible */
+
+    filter: brightness(1.05); /* Subtle brightness increase on focus */
+
+}
+
+
+
+.button:active {
+
+    transform: translateY(2px) scale(0.97) translateZ(-1px); /* Deeper, more distinct press, with more noticeable shrink, slightly less aggressive scale */
+
+    transition-duration: 0.08s; /* Ultra snappy active feedback */
+
+    box-shadow: var(--shadow-button-press); /* Reduces shadow for a "pressed in" look */
+
+    filter: brightness(0.95); /* Dim slightly on press for tactile feel */
+
+}
+
+
+
+.button-primary {
+
+    background-color: var(--color-primary);
+
+    color: var(--text-color-inverted);
+
+}
+
+
+
+.button-primary:hover {
+
+    background-color: var(--color-primary-dark);
+
+    box-shadow: var(--shadow-interactive-hover);
+
+    transform: translateY(-5px) scale(1.01) translateZ(10px); /* More pronounced, inviting lift with slight scale */
+
+    filter: brightness(1.1); /* Brighter on hover */
+
+}
+
+
+
+.button-secondary {
+
+    background-color: transparent;
+
+    color: var(--text-color-heading);
+
+    border: 1px solid var(--border-color-medium);
+
+}
+
+
+
+.button-secondary:hover {
+
+    background-color: var(--bg-color-disabled);
+
+    border-color: var(--color-primary);
+
+    box-shadow: var(--shadow-medium);
+
+    transform: translateY(-3px) scale(1.005) translateZ(5px); /* Slightly more lift for secondary */
+
+    filter: brightness(1.02);
+
+}
+
+
+
+.button:disabled {
+
+    background-color: var(--bg-color-disabled);
+
+    color: var(--text-color-disabled);
+
+    cursor: not-allowed;
+
+    opacity: 0.5; /* More distinct opacity change for disabled state */
+
+    transform: none;
+
+    box-shadow: none;
+
+    filter: grayscale(0.5); /* Desaturate for disabled */
+
+    &::after { /* No shimmer on disabled */
+
+        display: none;
+
+    }
+
+}
+
+
+
+/* --- Landing Page: The grand entrance, designed for impact and intrigue. --- */
+
+.quiz-header {
+
+    max-width: 760px; /* Wider for more engaging marketing copy */
+
+    padding: var(--space-xxxl) var(--space-md);
+
+    animation: fadeInScaleUp 1.2s var(--transition-smooth) forwards; /* Use transition-smooth for a more luxurious feel */
+
+    transform-origin: center center;
+
+    position: relative; /* For text reveal effects */
+
+}
+
+
+
+.quiz-header h1 {
+
+    font-size: 68px; /* Bigger, bolder, more impactful statement */
+
+    margin-bottom: var(--space-lg);
+
+    letter-spacing: -0.05em; /* Extremely tight for dramatic effect */
+
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Deeper, softer shadow for headings */
+
+    position: relative;
+
+    overflow: hidden; /* Hide overflowing text for reveal effect */
+
+    display: inline-block; /* Essential for text animation */
+
+    padding-bottom: var(--space-xs); /* Space for the underline */
+
+
+
+    /* Text reveal effect */
+
+    span {
+
+        display: block;
+
+        transform: translateY(100%);
+
+        animation: textSlideUp 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+
+        animation-delay: 0.8s; /* Stagger text reveal */
+
+    }
+
+
+
+    &::after {
+
+        content: '';
+
+        display: block;
+
+        width: 100px;
+
+        height: 3px;
+
+        background: var(--color-primary);
+
+        margin: var(--space-md) auto 0;
+
+        border-radius: 2px;
+
+        opacity: 0.9;
+
+        transform: scaleX(0);
+
+        animation: scaleXIn 1.4s var(--transition-smooth) forwards 0.3s;
+
+    }
+
+}
+
+
+
+.quiz-header p.quiz-intro {
+
+    font-size: 24px; /* More inviting, easier to read intro with more presence */
+
+    line-height: 1.7;
+
+    color: var(--text-color-body);
+
+    margin-bottom: var(--space-xl);
+
+    max-width: 700px;
+
+    opacity: 0;
+
+    animation: fadeIn 1.5s var(--transition-fluid) forwards 0.9s; /* Use transition-fluid for p.quiz-intro, delayed */
+
+    transform: translateZ(0);
+
+}
+
+
+
+.quiz-header p.quiz-intro:last-of-type {
+
+    margin-bottom: var(--space-xxl);
+
+}
+
+
+
+#start-quiz-button {
+
+    padding: 22px 80px; /* Even more generous padding for a strong, inviting CTA */
+
+    font-size: 24px; /* Prominent font size for the main action */
+
+    min-width: 400px; /* Ensures a substantial, consistent button width */
+
+    font-weight: 700; /* Boldest text for main action */
+
+    animation: fadeInTranslateY 1.6s var(--transition-smooth) forwards 1.2s; /* New keyframe for more distinct animation */
+
+}
+
+
+
+/* --- Quiz Questions Area: Interactive and engaging, guiding the user. --- */
+
+.quiz-question-container {
+
+    width: 100%;
+
+    max-width: 900px; /* Ample space for questions and options, feels less confined */
+
+    padding: var(--space-xxl) var(--space-lg);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    animation: slideInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; /* Smooth, slightly bouncy transition */
+
+    position: relative;
+
+    overflow: hidden;
+
+    background-color: var(--bg-color-card); /* Add background to container for subtle depth */
+
+    border-radius: var(--radius-lg);
+
+    box-shadow: var(--shadow-large);
+
+    transform-style: preserve-3d;
+
+    transform: translateZ(0); /* Ensure GPU acceleration */
+
+    will-change: transform, opacity, box-shadow;
+
+}
+
+
+
+:root {
+    /* Existing variables */
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-xxl: 64px;
+    --radius-pill: 9999px; /* For perfectly round dots */
+    --transition-fluid: 0.3s ease-in-out;
+    --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+    /* New Coffee-Inspired Colors */
+    --color-coffee-dark: #4A2C2A; /* Deep, rich coffee brown */
+    --color-creamy-latte: #E8DCCF; /* Soft, light beige for inactive dots */
+    --color-golden-crema: #BF8B5E; /* A warm, golden-brown for accents */
+    --color-milk-foam: #F5F0EC; /* Very light, almost white for subtle glows */
+
+    /* Alpha versions for shadows and subtle overlays */
+    --color-coffee-dark-alpha-20: rgba(74, 44, 42, 0.2);
+    --color-golden-crema-alpha-10: rgba(191, 139, 94, 0.1);
+    --color-golden-crema-alpha-05: rgba(191, 139, 94, 0.05);
+    --color-golden-crema-alpha-20: rgba(191, 139, 94, 0.2);
+    --color-golden-crema-alpha-00: rgba(191, 139, 94, 0.0); /* Fully transparent */
+
+    /* New variables for more granular control and effects */
+    --dot-size: 14px;
+    --dot-active-scale: 1.5;
+    --dot-hover-scale: 1.2;
+    --shadow-initial: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-active: 0 3px 10px var(--color-coffee-dark-alpha-20);
+    --shadow-hover: 0 2px 7px var(--color-golden-crema-alpha-05);
+
+    /* Animation timings */
+    --animation-brew-glow-duration: 1.5s;
+    --animation-finishing-pulse-duration: 2s;
+    --animation-steam-rise-duration: 3s;
+}
+
+/* Keyframes - More nuanced and descriptive */
+@keyframes brewGlow {
+    0% {
+        transform: scale(0.8) translateZ(-1px);
+        opacity: 0.6;
+        box-shadow: 0 0 5px var(--color-milk-foam); /* Subtle internal glow */
+    }
+    50% {
+        transform: scale(1) translateZ(-1px);
+        opacity: 1;
+        box-shadow: 0 0 15px var(--color-milk-foam), 0 0 25px rgba(255, 255, 255, 0.3); /* Brighter, more ethereal glow */
+    }
+    100% {
+        transform: scale(0.8) translateZ(-1px);
+        opacity: 0.6;
+        box-shadow: 0 0 5px var(--color-milk-foam);
+    }
+}
+
+@keyframes finishingPulse {
+    0% {
+        box-shadow: 0 0 0 0px var(--color-golden-crema-alpha-20);
+        transform: scale(1.5) translateZ(2px);
+        opacity: 1; /* Ensure visibility */
+    }
+    25% {
+        box-shadow: 0 0 0 15px var(--color-golden-crema-alpha-20); /* Expands more before fading */
+        transform: scale(1.6) translateZ(3px); /* Slightly larger pulse */
+        opacity: 1;
+    }
+    70% {
+        box-shadow: 0 0 0 20px var(--color-golden-crema-alpha-00); /* Fades out more aggressively */
+        transform: scale(1.55) translateZ(2.5px);
+        opacity: 0.8; /* Slight fade during fade out */
+    }
+    100% {
+        box-shadow: 0 0 0 0px var(--color-golden-crema-alpha-00);
+        transform: scale(1.5) translateZ(2px);
+        opacity: 1; /* Returns to full opacity for a sustained "finished" state */
+    }
+}
+
+@keyframes steamRise {
+    0% {
+        transform: translate(-50%, 0) scaleX(0.8) translateY(0);
+        opacity: 0.7;
+        filter: blur(1px);
+    }
+    100% {
+        transform: translate(-50%, -20px) scaleX(1.2) translateY(-10px); /* Rises and spreads */
+        opacity: 0;
+        filter: blur(3px); /* Blurs as it dissipates */
+    }
+}
+
+.progress-dots {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: center;
+    margin-bottom: var(--space-xxl);
+    padding: var(--space-xs) 0;
+    transform: translateZ(0); /* Hardware acceleration */
+    perspective: 1000px; /* Establishes a 3D context for depth */
+}
+
+.dot {
+    width: var(--dot-size);
+    height: var(--dot-size);
+    border-radius: var(--radius-pill);
+    background-color: var(--color-creamy-latte); /* Inactive dot color */
+    transition: background-color var(--transition-fluid), transform var(--transition-fluid), box-shadow var(--transition-fluid);
+    cursor: pointer;
+    transform-origin: center;
+    position: relative;
+    transform: translateZ(0); /* Optimize for transform */
+    box-shadow: var(--shadow-initial); /* Subtle initial shadow for depth */
+    overflow: hidden; /* Important for containing pseudo-elements */
+
+    /* Inner "coffee liquid" gradient for depth */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 15%; /* Start a bit lower to simulate liquid */
+        left: 15%;
+        right: 15%;
+        bottom: 15%;
+        border-radius: var(--radius-pill);
+        background: radial-gradient(circle at center, var(--color-golden-crema) 0%, var(--color-coffee-dark) 80%);
+        opacity: 0; /* Hidden when inactive */
+        transform: scale(0.5); /* Smaller when inactive */
+        transition: transform var(--transition-fluid) ease-out, opacity var(--transition-fluid);
+        z-index: 1; /* Above the inner glow */
+    }
+
+    /* Outer glow/reflection for active state */
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border-radius: var(--radius-pill);
+        background-color: var(--color-milk-foam); /* Inner glow color */
+        opacity: 0;
+        transform: scale(0);
+        transition: transform var(--transition-fluid), opacity var(--transition-fluid);
+        z-index: 0; /* Ensures it's behind the dot's main appearance */
+    }
+}
+
+.dot.active {
+    background-color: var(--color-coffee-dark); /* Active dot color */
+    transform: scale(var(--dot-active-scale)) translateZ(2px); /* Lifts and enlarges */
+    box-shadow: var(--shadow-active); /* Deeper, richer shadow */
+
+    &::before {
+        opacity: 1; /* Show coffee liquid */
+        transform: scale(0.9); /* Expands liquid */
+    }
+
+    &::after {
+        transform: scale(1);
+        opacity: 1;
+        animation: brewGlow var(--animation-brew-glow-duration) infinite alternate ease-in-out; /* Pulsing "brew" glow */
+    }
+}
+
+/* Specific styling for the last dot when active, to signal "finishing" */
+.progress-dots .dot:last-child.active {
+    background-color: var(--color-golden-crema); /* Special color for the last active dot */
+    box-shadow: 0 0 0 0px transparent, 0 5px 15px var(--color-golden-crema-alpha-20); /* Initial shadow, will pulse */
+    animation: none; /* Remove brewGlow from last dot */
+    animation: finishingPulse var(--animation-finishing-pulse-duration) ease-out forwards; /* One-time pulse for finishing */
+
+    /* A subtle "steam" effect from the finished coffee */
+    &::after {
+        content: '';
+        position: absolute;
+        top: -50%; /* Start above the dot */
+        left: 50%;
+        width: 60%; /* Wider steam */
+        height: 60%;
+        background: rgba(255, 255, 255, 0.4); /* Light steam color */
+        border-radius: 50%;
+        filter: blur(2px); /* Soft blur */
+        transform: translate(-50%, 0);
+        animation: steamRise var(--animation-steam-rise-duration) ease-out forwards;
+        z-index: 3; /* Above everything else */
+    }
+
+    &::before {
+        background: radial-gradient(circle at center, var(--color-milk-foam) 0%, var(--color-golden-crema) 80%); /* Crema on top */
+        transform: scale(1); /* Fill completely with crema */
+    }
+}
+
+.dot:hover:not(.active) {
+    background-color: var(--color-golden-crema-alpha-10); /* Inviting hover color */
+    transform: scale(var(--dot-hover-scale)) translateZ(1px); /* Gentle lift on hover */
+    box-shadow: var(--shadow-hover); /* Soft, subtle halo on hover */
+
+    &::before {
+        opacity: 0.3; /* Hint of coffee color on hover */
+        transform: scale(0.6);
+    }
+}
+
+
+.quiz-question-container h2 {
+
+    font-size: 48px; /* Commanding, prominent question text */
+
+    margin-bottom: var(--space-md);
+
+    max-width: 750px;
+
+    letter-spacing: -0.04em;
+
+    text-align: center;
+
+    transform: translateZ(0); /* Optimize for transform */
+
+    line-height: 1.2;
+
+    text-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Subtle shadow for depth */
+
+}
+
+
+
+.subtitle {
+
+    font-size: 22px; /* Clear, supportive, and more prominent subtitle */
+
+    color: var(--text-color-body);
+
+    margin-bottom: var(--space-xl);
+
+    max-width: 700px;
+
+    line-height: 1.6;
+
+    text-align: center;
+
+    transform: translateZ(0);
+
+}
+
+
+
+.options {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: var(--space-lg);
+
+    justify-content: center;
+
+    margin-bottom: var(--space-xxl);
+
+    width: 100%;
+
+    transform-style: preserve-3d; /* For child 3D transforms */
+
+}
+
+
+
+.option-card {
+
+    flex: 1 1 calc(50% - var(--space-lg) / 2);
+
+    min-width: 350px; /* Ensures cards maintain a good minimum size, feels more substantial */
+
+    padding: var(--space-xl); /* More generous internal padding, feels premium */
+
+    background-color: var(--bg-color-card);
+
+    border: 1px solid var(--border-color-soft);
+
+    border-radius: var(--radius-lg); /* Softer, more modern corners, tactile feel */
+
+    text-align: center;
+
+    cursor: pointer;
+
+    font-size: 20px; /* Larger, more readable option text */
+
+    font-weight: 500;
+
+    color: var(--text-color-body);
+
+    transition: border-color var(--transition-fluid),
+
+                box-shadow var(--transition-fluid),
+
+                transform var(--transition-spring-hover), /* Springy transform */
+
+                background-color var(--transition-fluid),
+
+                color var(--transition-fluid),
+
+                filter var(--transition-fluid); /* Also animate text color and filter */
+
+    will-change: border-color, box-shadow, transform, background-color, color, filter;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow: var(--shadow-medium); /* Initial subtle depth, cards feel tangible */
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 120px; /* Ensures a consistent, ample height */
+
+    backface-visibility: hidden; /* Helps prevent flickering */
+
+    transform: translateZ(0); /* Ensure GPU acceleration */
+
+
+
+    /* Subtle background shimmer/radial effect on hover */
+
+    &::before {
+
+        content: '';
+
+        position: absolute;
+
+        top: 50%;
+
+        left: 50%;
+
+        width: 180%;
+
+        height: 180%;
+
+        background: radial-gradient(circle at center, var(--color-primary-alpha-10) 0%, transparent 70%);
+
+        transform: translate(-50%, -50%) scale(0) translateZ(-2px); /* Slightly behind for depth */
+
+        opacity: 0;
+
+        transition: transform var(--transition-fluid) 0.05s, opacity var(--transition-fluid); /* Slight delay for transform */
+
+        z-index: 0;
+
+    }
+
+}
+
+
+
+.option-card:hover {
+
+    border-color: var(--color-primary);
+
+    box-shadow: var(--shadow-interactive-hover);
+
+    transform: translateY(-8px) rotateX(2deg) translateZ(15px); /* More pronounced, inviting lift on hover with subtle 3D tilt */
+
+    filter: brightness(1.02); /* Slight brightness increase */
+
+
+
+    &::before {
+
+        transform: translate(-50%, -50%) scale(1) translateZ(-2px);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+
+.option-card.selected {
+
+    border-color: var(--color-primary);
+
+    background-image: linear-gradient(155deg, var(--color-primary-ultralight) 0%, var(--color-primary-light) 100%); /* More dynamic, inviting gradient for selected state */
+
+    box-shadow: var(--shadow-large); /* Maintains premium feel, deeper shadow when selected */
+
+    transform: translateY(-4px) translateZ(10px); /* Still slightly elevated for selected, feels active */
+
+    color: var(--text-color-heading); /* Text becomes richer for selected */
+
+    filter: brightness(1.01); /* Subtle brightness */
+
+
+
+    &::before { /* Remove hover glow when selected */
+
+        opacity: 0;
+
+        transform: translate(-50%, -50%) scale(0) translateZ(-2px);
+
+        transition: transform 0.1s, opacity 0.1s; /* Faster out transition for selected state */
+
+    }
+
+    /* Add a subtle inner border glow for selected state */
+
+    &::after {
+
+        content: '';
+
+        position: absolute;
+
+        inset: 0;
+
+        border-radius: var(--radius-lg);
+
+        box-shadow: inset 0 0 0 2px var(--color-primary-alpha-60); /* Inner glow effect */
+
+        opacity: 0;
+
+        animation: innerGlow 0.5s ease-out forwards;
+
+        pointer-events: none;
+
+    }
+
+}
+
+
+
+.option-card.selected:hover {
+
+    background-image: linear-gradient(155deg, var(--color-primary-ultralight) 0%, var(--color-primary-light) 100%);
+
+    box-shadow: var(--shadow-large); /* Selected state maintains large shadow */
+
+    transform: translateY(-5px) rotateX(2.5deg) translateZ(15px); /* Slight hover lift even when selected */
+
+}
+
+
+
+.option-card span {
+
+    position: relative;
+
+    z-index: var(--z-index-base);
+
+    transition: transform var(--transition-fluid) 0.05s; /* Slight delay on text movement */
+
+}
+
+
+
+.option-card:hover span {
+
+    transform: translateY(-2px); /* Text subtly lifts with card */
+
+}
+
+
+
+.note {
+
+    font-size: 17px; /* More readable, less 'fine print' */
+
+    color: var(--text-color-subtle);
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    padding-top: var(--space-sm);
+
+    line-height: 1.6;
+
+    font-style: italic;
+
+    text-align: center;
+
+    opacity: 0.9;
+
+    transform: translateZ(0);
+
+}
+
+
+
+/* --- Navigation: Seamless transitions between steps, guiding the user forward. --- */
+
+.quiz-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: var(--space-xxxl); /* More generous spacing below options */
+
+    width: 100%;
+
+    max-width: 600px;
+
+    gap: var(--space-md);
+
+    flex-wrap: wrap;
+
+    transform: translateZ(0);
+
+}
+
+
+
+.quiz-actions .button {
+
+    flex-grow: 1;
+
+    min-width: 200px; /* Ensures buttons don't get too small */
+
+    padding: var(--space-md) var(--space-lg);
+
+    font-size: 19px;
+
+}
+
+
+
+/* --- Results and Form Screens: The satisfying conclusion, presented with clarity. --- */
+
+.result-screen,
+
+.contact-form-screen {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    padding: var(--space-xxxl) var(--space-lg);
+
+    animation: fadeIn 0.9s var(--transition-smooth) forwards; /* Use transition-smooth for these screens, slightly longer */
+
+    transform-style: preserve-3d;
+
+    transform: translateZ(0);
+
+}
+
+
+
+.result-screen h2,
+
+.contact-form-screen h2 {
+
+    font-size: 52px; /* More impactful headings for final screens */
+
+    margin-bottom: var(--space-md);
+
+    letter-spacing: -0.04em;
+
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+
+    transform: translateZ(0);
+
+}
+
+
+
+.result-screen h3 {
+
+    font-family: var(--font-family-display);
+
+    font-size: 38px; /* More prominent profile name */
+
+    color: var(--color-primary);
+
+    margin-bottom: var(--space-md);
+
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+
+    letter-spacing: -0.02em;
+
+    transform: translateZ(0);
+
+}
+
+
+
+.result-screen p.quiz-intro,
+
+.contact-form-screen p {
+
+    font-size: 21px; /* More inviting and readable for conclusion text */
+
+    color: var(--text-color-body);
+
+    max-width: 750px;
+
+    margin-bottom: var(--space-xl);
+
+    line-height: 1.7;
+
+    text-align: center;
+
+    transform: translateZ(0);
+
+}
+
+
+
+.contact-form-screen input {
+
+    width: 100%;
+
+    max-width: 520px; /* Wider input fields for comfort and typing ease */
+
+    padding: var(--space-lg); /* More generous padding for a better touch target */
+
+    font-size: 19px; /* Larger font for input, easier typing */
+
+    border: 1px solid var(--border-color-medium);
+
+    border-radius: var(--radius-sm);
+
+    margin-bottom: var(--space-md);
+
+    color: var(--text-color-heading);
+
+    background-color: var(--bg-color-card);
+
+    transition: border-color var(--transition-fluid), box-shadow var(--transition-fluid), background-color var(--transition-snappy);
+
+    box-shadow: var(--shadow-small);
+
+    appearance: none;
+
+    transform: translateZ(0); /* Optimize for transform */
+
+    -webkit-appearance: none; /* For consistent styling */
+
+
+
+    &:not(:placeholder-shown):valid {
+
+        border-color: var(--border-color-success); /* Green border on valid input */
+
+        background-color: lighten(var(--bg-color-card), 2%); /* Subtle background change */
+
+    }
+
+    &:not(:placeholder-shown):invalid {
+
+        border-color: var(--border-color-error); /* Red border on invalid input */
+
+        background-color: lighten(var(--bg-color-card), 1%);
+
+    }
+
+}
+
+
+
+.contact-form-screen input:focus {
+
+    outline: none;
+
+    border-color: var(--border-color-focus);
+
+    box-shadow: var(--shadow-input-focus-glow), 0 0 0 1px var(--color-primary-alpha-20), var(--shadow-medium); /* Signature focus glow, multi-layered */
+
+    transform: scale(1.005) translateZ(2px); /* Slight scale on focus */
+
+}
+
+
+
+.contact-form-screen input::placeholder {
+
+    color: var(--text-color-placeholder);
+
+    opacity: 1;
+
+    transition: opacity var(--transition-snappy), transform var(--transition-snappy);
+
+}
+
+
+
+.contact-form-screen input:focus::placeholder {
+
+    opacity: 0.5; /* Slightly fade out more */
+
+    transform: translateX(2px); /* Slight nudge on focus */
+
+}
+
+
+
+.form-buttons {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--space-md);
+
+    width: 100%;
+
+    max-width: 520px; /* Matches input width for alignment */
+
+    margin-top: var(--space-lg);
+
+    transform: translateZ(0);
+
+}
+
+
+
+.form-buttons .button {
+
+    padding: var(--space-md) var(--space-lg);
+
+    font-size: 19px;
+
+}
+
+
+
+/* --- Footer: A subtle, elegant closing statement. --- */
+
+.quiz-footer {
+
+    margin-top: var(--space-xxxl);
+
+    font-size: 16px;
+
+    color: var(--text-color-subtle);
+
+    width: 100%;
+
+    text-align: center;
+
+    padding: var(--space-md) var(--space-sm);
+
+    border-top: 1px solid var(--border-color-soft);
+
+    opacity: 0.8;
+
+    transition: opacity 0.5s ease-out; /* Smooth fade for footer */
+
+    transform: translateZ(0);
+
+}
+
+
+
+/* --- Keyframe Animations: Bringing the UI to life with sophisticated motion. --- */
+
+@keyframes fadeIn {
+
+    from { opacity: 0; }
+
+    to { opacity: 1; }
+
+}
+
+
+
+@keyframes fadeInScaleUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.92) translateY(40px) translateZ(-50px); /* Deeper initial state, more dramatic lift, subtle Z-depth */
+
+        filter: blur(5px) brightness(0.8); /* Initial blur and dim */
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1) translateY(0) translateZ(0);
+
+        filter: blur(0) brightness(1);
+
+    }
+
+}
+
+
+
+@keyframes scaleXIn {
+
+    from { transform: scaleX(0); }
+
+    to { transform: scaleX(1); }
+
+}
+
+
+
+@keyframes slideInUp {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(80px) rotateX(-5deg) scale(0.95) translateZ(-20px); /* Slides in from much lower, with a slight tilt and scale */
+
+        filter: blur(3px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0) rotateX(0deg) scale(1) translateZ(0);
+
+        filter: blur(0);
+
+    }
+
+}
+
+
+
+@keyframes fadeInTranslateY { /* New keyframe for #start-quiz-button */
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(30px) scale(0.9);
+
+        filter: blur(2px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0) scale(1);
+
+        filter: blur(0);
+
+    }
+
+}
+
+
+
+@keyframes dotGlow { /* For pulsing progress dots */
+
+    from { box-shadow: 0 0 0 6px var(--color-primary-alpha-20); }
+
+    to { box-shadow: 0 0 0 10px var(--color-primary-alpha-40); }
+
+}
+
+
+
+@keyframes innerGlow { /* For selected card inner glow */
+
+    from { box-shadow: inset 0 0 0 0px transparent; opacity: 0; }
+
+    to { box-shadow: inset 0 0 0 2px var(--color-primary-alpha-60); opacity: 1; }
+
+}
+
+
+
+@keyframes textSlideUp { /* For kinetic typography headings */
+
+    from { transform: translateY(100%); }
+
+    to { transform: translateY(0%); }
+
+}
+
+
+
+/* --- Responsive Design: Flawless adaptation across the Apple ecosystem, intuitive and effortless. --- */
+
+/* Tablet & Smaller Laptop Optimizations (iPad Pro, larger tablets, smaller MacBooks) */
+
+@media (max-width: 1024px
